@@ -1,0 +1,32 @@
+---
+title: "Data product on plotly"
+output: slidy_presentation
+---
+
+# 20 November 2020
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## setwd and reqiure the right package
+
+
+```{r , echo = TRUE}
+setwd('C:\\Users\\caro\\Desktop\\directory')
+library(plotly)
+```
+
+# read in tne data
+```{r , echo = TRUE}
+hpc <- read.csv("pml-testing.csv",header= TRUE)
+head(hpc)
+```
+# Slide with Plot
+
+```{r pressure}
+p <- plot_ly(data = hpc, x = hpc$user_name, y = hpc$roll_belt, type="bar",color = hpc$user_name) %>% layout(title = "roll_belt against username", xaxis=list(title="user_name"), yaxis=list(title="roll_belt"))
+p
+
+```
+
